@@ -1,0 +1,999 @@
+DATA 70600 / DHUM 70600 - INTRODUCTION TO JAVASCRIPT
+(Thurs 6:30-7:30 Online via Zoom) - Instructor: Stephen Zweibel (Steve)
+Zoom: https://gc-cuny-edu.zoom.us/j/5363682686?pwd=amdYRTEzVUdIaVpCVTlwNDFFRjNNdz09
+
+Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu | EMPLID 24371021
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+Using Your Browser's Console - Google Chrome:
+* Command + Option + i (Mac)
+* Ctrl + Shift + i (Windows/Linux)
+* Open the Chrome settings menu in the top-right corner of your browser window and select More Tools > Developer Tools.
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+8/31: INTRODUCTION &  CHAPTER 2: GETTING STARTED WITH JAVASCRIPT
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=2
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=3
+
+ALERTS
+
+alert("Hello, World!");
+
+CONSOLE.LOG FUNCTION
+
+console.log("Hello, World!");
+
+OPERATORS (returns data type)
+
+< ... less than (true/false)
+> ... greater than (true/false)
+<= ... less than or equal to (true/false)
+>= ... greater than or equal to (true/false)
+== ... equal to (true/false)
+!= ... not equal to (true/false)
+=== ... "strict" equal to (include type such as string, number, etc.)
+
+Also...
+
+% ... remainder (a number)
+++ ... increment by one (a number)
+-- ... decrement by one (a number)
+- .. unary operator, the negative value of number (a number)
+** ... exponentiation, base to exponent power (base^exponent) (a number)
+
++ ... add values if numbers (2 + 3 returns 5)
++ ... concatenate if strings ("my" + "string" returns "my string")
+
++= ... concatenate if strings (let mystring = "alpha"; mystring += "bet"; returns alphabet)
+
+&& ... logical AND (expr1 && expr2)
+|| ... logical OR (expr1 || expr 2)
+! ... logical NOT (expr1 ! expr2)
+
+a & b ... bitwise AND
+a | b ... bitwise OR
+a ^ b ... bitwise XOR
+
+VARIABLES: This is NOT an operator...
+
+= ... set value to a variable (aka "assignment operator")
+
+var a = 1;
+var b = 2;
+var c = a + b;
+
+var weather = 'sunny';
+var statement = 'The weather is ' + weather + ' today.';
+
+RULES FOR VARIABLES
+* must begin with a letter or an underscore
+* cannot begin with a number (but can contain numbers after first character)
+* cannot contain spaces or special characters
+* case sensitive
+* cannot use JavaScript reserved words
+* Avoid hyphens (-), can cause error later if read as subtraction
+
+NOTE: Later assignments recommend against var in favor of let and const
+
+let = sets a global variable on root, or local variable within a function
+const = sets a global variable that cannot be changed
+
+REVIEW QUESTIONS
+
+1. console.log() is best used for (select one):
+* testing and debugging your code
+
+3. Which of these variable names are legal (valid) in JavaScript? (select all that apply)
+* my_books
+* myBooks
+* myBooks1
+
+CHALLENGES
+
+1. In JavaScript, as in algebra, ambiguity in a mathematical expression is resolved by rules of precedence (PEMDAS). For example, the expression 5 + 5 is evaluated as 10, while the expression 5 + 5 * 5 is evaluated as 30. Using the rules of precedence and the console, rework the expression 5 + 5 * 10 /2 so that it resolves to 50. Next, utilizing the variables defined below, write an expression that resolves to true using the double equals == operator.
+
+const result = (5 + 5) * 10 / 2;
+console.log(result);
+// returns 50
+
+var a = 5 + 5;
+var b = 10;
+console.log(a == b);
+// returns "true"
+
+
+2. Using variables, write a simple program that 1) sends an alert to the user telling them to open the developer console in their browser and 2) logs a message to the console saying they have won a prize. Note: This is an imaginary practice scenario. In reality, you would want to avoid using console.log() to send messages to users when actually deploying your website. Any information you want the user of your webpage to see should be presented on the webpage itself.
+
+alert("Open the developer console in your browser.");
+console.log("You have won a prize.");
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+9/7: CHAPTER 3: IF/THEN
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=4
+
+PROMPTS
+
+var userName = prompt("What is your name?");
+
+var whatAmI = prompt("What am I?", "I am a human!");
+// ...in which "I am a human!" will show in the response field and act as the default return value if the user doesn't enter anything themselves
+
+var userAge = prompt("How old are you?");
+userAge = parseInt(userAge);
+alert("You are " + userAge + " years old.");
+typeof userAge;
+
+IF/ELSE STATEMENTS
+"If condition is met, then execute the task."
+
+if (condition) {
+	// code to run if condition is true
+} else {
+	// code to run if condition is false
+}
+
+Example...
+
+    var userAge = prompt("How old are you?");
+    userAge = parseInt(userAge);
+    if (userAge >= 18) {
+        alert("You are legally old enough to vote in the U.S.");
+    } else {
+        alert("You are not legally old enough to vote in the U.S.");
+    }
+
+ELSE IF STATEMENTS
+
+if (condition1){
+    // code to run if condition1 is true
+    if (condition2){
+        // code to run if condition2 is true
+        if (condition3){
+            // code to run if condition3 is true
+        } else {
+            // code to run if condition3 is false
+        }
+    } else {
+        // code to run if condition2 is false
+    }
+} else {
+    // code to run if condition1 is false
+}
+
+Example...
+
+    var userAge = prompt("How old are you?");
+    userAge = parseInt(userAge);
+
+    if (userAge >= 18) {
+        alert("You are legally old enough to vote and drive in the U.S.");
+    } else if (userAge >= 16) {
+        alert("You are not old enough to vote, but you are old enough to drive in the U.S.");
+    } else {
+        alert("You are not legally old enough to vote or drive in the U.S.");
+    }
+
+SWITCH STATEMENTS
+
+    switch (variable) {
+        case value1:
+            // code to run if `variable` is `value1`
+            break;
+        case value2:
+            // code to run if `variable` is `value2`
+            break;
+        case value3:
+            // code to run if `variable` is `value3`
+            break;
+        default:
+            // code to run if `variable` is not `value1`, `value2`, or `value3`
+            break;
+    }
+
+Example...
+
+    var difficulty = prompt("What difficulty would you like to play? 1- Easy, 2- Medium, 3- Hard");
+    switch (difficulty) {
+        case "1":
+            alert("You have selected the Easy difficulty.");
+            break;
+        case "2":
+            alert("You have selected the Medium difficulty.");
+            break;
+        case "3":
+            alert("You have selected the Hard difficulty.");
+            break;
+        default:
+            alert("Invalid entry.");
+            break;
+    }
+
+CHOOSE YOUR OWN ADVENTURE
+
+var playerName, playerChoice;
+
+    var playerName = prompt("What is your name?");
+    alert("Welcome, " + playerName + "!");
+
+    alert(playerName + ", you are the last person on earth, sitting alone in a room. There is a knock on the door... What will you do?");
+    playerChoice = prompt("Enter 1 to cautiously approach the door. Enter 2 to hide under the table.");
+    if (playerChoice == "1"){
+        alert("Your hands are trembling as you approach the door. You pause a moment before it.");
+        playerChoice = prompt("Enter 1 to bravely open the door. Enter 2 to look through the door's peephole.");
+        if (playerChoice == "1"){
+            alert("You swing the door open with courageous gusto.")
+        }
+        else if (playerChoice == "2"){
+            alert("You cautiously look through the peephole. You make out a vague shape looming before the door.")
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    } else if (playerChoice == "2"){
+        alert("As you hide under the table you hear the doorknob rattling.");
+        playerChoice = prompt("Enter 1 to stay hidden under the table. Enter 2 to get up and find a weapon to defend yourself with.");
+        if (playerChoice == "1"){
+            alert("Whatever is at the door has now begun banging on it loudly.");
+        }
+        else if (playerChoice == "2"){
+            alert("You quickly but quietly get up and look around. You see a broom in the corner of the room and wield it mightily.");
+        }
+        else {
+            alert("Invalid entry.");
+        }
+    }
+    else {
+        alert("Invalid entry.");
+    }
+
+REVIEW QUESTIONS
+
+1. The prompt() function always returns a string.
+* True
+
+2. The code snippet below will throw errors or otherwise not work as intended. Why? Take a moment to look over it carefully, then select all that apply in the quiz below.
+
+prompt("What is your name?");
+if (name = "Sal Ami")
+    alert("Hello name!");
+else
+    alert("It's too bad your name isn't" + name + ".");
+
+* prompt() needs to be assigned to a variable.
+* a double-equals (rather than a single equals) operator is needed in the if statement.
+* the first alert will not correctly display name as intended.
+* the if/else statement needs curly braces for each part.
+
+3. Switch statements should have (select all that apply):
+
+* break
+* curly braces
+* a default case
+
+CHALLENGES
+
+1. Write a program that has the user input a number. If the number is even, alert "The number is even." If the number is odd, alert "The number is odd."
+
+var userInput = prompt("Enter a number:");
+if (userInput % 2 === 0) {
+    alert("The number is even.");
+} else {
+    alert("The number is odd.");
+}
+
+2. Utilizing switch statements, write a short Choose Your Own Adventure story that allows the player 3 choices to choose from at a time.
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+9/14: CHAPTER 4: LOOPS AND ARRAYS
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=5
+
+ARRAYS
+
+var myArray1 = [1, 2, 3, 4, 5];
+var myArray2 = ['a', 'b', 'c', 'd', 'e'];
+var myArray3 = [true, false, true, false];
+var myArray4 = [1, 2, 'dog', true, [1, 2, 3]];
+
+Accessing Values in an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray[0]); // returns 1
+
+Changing Values in an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray[0] = 'cat';
+alert(myArray[0]); // returns 'cat'
+
+Adding Values to an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.push('cat');
+alert(myArray[5]); // returns 'cat'
+
+Removing Values from an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.pop();
+alert(myArray[4]);
+
+Splicing an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.splice(0, 2);
+alert(myArray[0]); // returns 'dog'
+
+Determining the Length of an Array...
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray.length); // returns 5
+alert(myArray[myArray.length - 1]); // returns [1, 2, 3]
+
+THE SORT() METHOD
+
+By letter...
+
+var myArray = ['c', 'b', 'a', 'e', 'd'];
+myArray.sort();
+alert(myArray); // returns ['a', 'b', 'c', 'd', 'e']
+
+By number...
+
+var myArray = [2, 4, 3, 1, 5];
+myArray.sort();
+alert(myArray); // returns [1, 2, 3, 4, 5]
+
+THE FOR LOOP
+
+for (var i = 0; i < array.length; i++) {
+    // do something
+}
+
+To break it down a little more...
+* var i = 0: This is the starting point of the loop. It will serve as the index number of the first element in the array.
+* i < array.length: This is the condition of the loop. It is a boolean expression that determines whether the loop should continue. In other words, it says: "while i is less than the length of the array, do the following:".
+* i++: This is the incrementor. ++ is a new operator that means that the value of i will increase or increment by 1 each time the loop executes. We use it to increment the index number of the loop so that it will continually move to the next element in the array.
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+for (var i = 0; i < myArray.length; i++) {
+    alert(myArray[i]);
+}
+
+FOR LOOPS
+
+var num = 5;
+
+// looping from i = 1 to 5
+// in each iteration, i is increased by 1
+for (var i = 1; i <= num; i++) {
+    console.log(i);     // printing the value of i
+}
+
+THE WHILE LOOP
+
+var i = 0;
+while (i < 5) {
+    alert(i);
+    i++;
+}
+
+Note: It is very important to make sure your while loops ultimately end by satisfying the condition you specify. If you don't, the loop will continue forever, and the user will be required to force-quit your program or close the window to stop it.
+
+PUTTING IT ALL TOGETHER - THE LIBRARY APP
+
+var bookTitles = [
+    'Too Loud a Solitude',
+    'Things Fall Apart',
+    'The Master and Margarita',
+    'The Three Body Problem',
+    'The Woman Destroyed',
+    'Beloved',
+    'The Tenant of Wildfell Hall',
+    "Lady Chatterley's Lover",
+];
+
+bookTitles.sort();
+var libRequests = [];
+var requestedTitle = "";
+
+alert("Welcome to the library!\n\nPlease search for a book title when prompted.\n\nType `request` at the prompt to make a request for a book.\n\nYou can also type `display` at the prompt to display all available book titles.\n\nType `quit` at the prompt to quit the program.");
+
+var response = "";
+while (response != 'quit') {
+    response = prompt("Search for a book title or make a request by typing 'request': ");
+    // check if the user wants to make a request
+    if (response == 'request') {
+        requestedTitle = prompt("What book would you like to request? ");
+        libRequests.push(requestedTitle); // add the requested title to the library requests array
+        alert("You have requested the following titles:" + libRequests + "."); // alert the user their requests
+    }
+    // check if the user wants to display all the titles
+    else if (response == 'display') {
+        for (var i = 0; i < bookTitles.length; i++) {
+            alert(bookTitles[i]); // display all available book titles
+            }
+    }
+    // otherwise, check if the book the user entered is in the library
+    else {
+        var bookIndex = bookTitles.indexOf(response);
+        if (response != 'quit'){
+            // if indexOf returns -1, the book the user entered is not in the library
+            if (bookIndex == -1) {
+                alert("Sorry, we don't have that book. You can always request it.");
+            }
+            else {
+                alert("Yes, " + response + " is available to check out.");
+            }
+        }
+    }
+}
+
+
+REVIEW QUESTIONS
+
+1. What will be the result of the alert in the code below?
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.pop();
+alert(myArray[4]);
+
+* undefined
+
+2. What will be the result of the alert in this code snippet?
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+alert(myArray.length);
+
+* 5
+
+3. What will be the result of the alert here?
+
+var myArray = [1, 2, 'dog', true, [1, 2, 3]];
+myArray.splice(0, 2);
+alert(myArray[0]);
+
+* dog
+
+CHALLENGES
+
+1. Write a for loop that prints all even numbers from 0 to 100 to the console.
+
+var num = 100;
+for (var i = 1; i <= num; i++) {
+    console.log(i);
+}
+
+2. The library program is very case sensitive, requiring the user to enter exact punctuation and capitalization of a book title. This is not a very robust search. Try improving the program using the toLowerCase method, which converts all the letters of a string to lowercase, to make the search parameters case insensitive. Hint: To match the two terms, you will want to perform the toLowerCase method both on the user's response as well as on each book title in the library. Try storing these results in new variables!
+
+NOTE: toLowerCase METHOD
+
+string.toLowerCase()
+
+...as in:
+
+const originalString = "Hello World";
+const lowercaseString = originalString.toLowerCase();
+
+console.log(lowercaseString); // Output: "hello world"
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+9/21: CHAPTER 5: FUNCTIONS
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=6
+
+FUNCTIONS
+
+function functionName(parameter1, parameter2, ...) {
+    // code to be executed
+    return value;
+}
+
+Notes:
+* naming conventions for functions are lower CamelCase
+* define the function's parameters or arguments within closed parentheses ()
+* parameters are the values that will be passed into the function when it is called
+* parameters are separated by commas
+* functions return a value (in other words, a function takes some input, transforms that input somehow, and returns an output)
+
+function add(num1, num2) {
+    var sum = num1 + num2;
+    return sum;
+}
+var result = add(1, 2);
+alert(result);
+
+// returns 3 in an alert
+
+SCOPE - RETHINKING VARIABLE DECLARATIONS
+var vs. let and const
+
+var name = 'John';
+let age = 30;
+const isAdmin = true;
+
+Notes:
+* var declarations can be "globally" and "function/locally" scoped. 
+* let declarations are block-scoped, only available within the block of code in which it is declared. 
+* const is block-scoped but is immutable; once declared, const cannot be updated or re-declared.
+
+THE STUDENT GRADES PROGRAM
+
+Let's imagine that students have just submitted several homework assignments and we need to evaluate their grades. We want to:
+
+1. Easily display their grades.
+2. A new student has joined and submitted work, so we want to add a student to our list of students.
+3. Evaluate their numbered grades to a letter (A, B, C, D, or F).
+
+OBJECTS
+
+Objects are collections of key-value pairs, and each key-value pair is called a property. The properties of an object can be accessed using dot notation (objectName.propertyName) or bracket notation (objectName["propertyName"]).
+
+Here we have a student object with three properties: name, grade, and GPA. To access the value of a property, we use the . syntax with the key. 
+
+let student = {
+    name: "Bob",
+    grade: "A",
+    GPA: 4.0
+};
+
+console.log(student.name); // logs "Bob"
+console.log(student.grade); // logs "A"
+console.log(student.GPA); // logs 4.0
+
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+
+ALSO: How to List the Properties of a JavaScript Object...
+https://www.w3docs.com/snippets/javascript/how-to-list-the-properties-of-a-javascript-object.html
+
+let object = {
+  name: 'Jack',
+  age: 25
+};
+let keys = Object.keys(object)
+console.log(keys);
+
+To retrieve the list of the property names, you can do the following:
+
+let getKeys = function (obj) {
+  let keysArr = [];
+  for (var key in obj) {
+    keysArr.push(key);
+  }
+  return keysArr;
+}
+
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+Back to zweibel.net...
+
+Multiple objects in an array of objects...
+
+let students = [
+    {
+        name: "Bob",
+        grades: [88, 90, 80, 77, 89]
+    },
+    {
+        name: "Alice",
+        grades: [100, 95, 92, 89, 97]
+    },
+    {
+        name: "Juan",
+        grades: [91, 90, 94, 86, 90]
+    }
+];
+
+
+Printing the Grades...
+
+// print all student names and their grades
+function printGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i].name + ": " + students[i].grades);
+    }
+}
+
+printGrades(students);
+
+Adding a Student...
+
+function addStudent(name, grades) {
+    let student = {
+        name: name,
+        grades: grades
+    };
+    students.push(student);
+}
+
+addStudent("Biff", [71, 80, 56, 65, 60]);
+
+Converting Grades to Letters...
+
+function convertGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        let grades = students[i].grades;
+        let letterGrade = "";
+        for (let j = 0; j < grades.length; j++) {
+            if (grades[j] >= 90) {
+                letterGrade += "A ";
+            } else if (grades[j] >= 80) {
+                letterGrade += "B ";
+            } else if (grades[j] >= 70) {
+                letterGrade += "C ";
+            } else if (grades[j] >= 60) {
+                letterGrade += "D ";
+            } else {
+                letterGrade += "F ";
+            }
+        }
+        console.log(students[i].name + ": " + letterGrade);
+    }
+}
+
+convertGrades(students);
+
+The whole program together...
+
+// array of student objects
+let students = [
+    {
+        name: "Bob",
+        grades: [88, 90, 80, 77, 89]
+    },
+    {
+        name: "Alice",
+        grades: [100, 95, 92, 89, 97]
+    },
+    {
+        name: "Juan",
+        grades: [91, 90, 94, 86, 90]
+    }
+];
+
+// print all student names and their grades
+function printGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        console.log(students[i].name + ": " + students[i].grades);
+    }
+}
+
+//add a new student
+function addStudent(name, grades) {
+    let student = {
+        name: name,
+        grades: grades
+    };
+    students.push(student);
+}
+
+// convert grades to letters
+function convertGrades(students) {
+    for (let i = 0; i < students.length; i++) {
+        let grades = students[i].grades;
+        let letterGrade = "";
+        for (let j = 0; j < grades.length; j++) {
+            if (grades[j] >= 90) {
+                letterGrade += "A ";
+            } else if (grades[j] >= 80) {
+                letterGrade += "B ";
+            } else if (grades[j] >= 70) {
+                letterGrade += "C ";
+            } else if (grades[j] >= 60) {
+                letterGrade += "D ";
+            } else {
+                letterGrade += "F ";
+            }
+        }
+        console.log(students[i].name + ": " + letterGrade);
+    }
+}
+
+// call functions
+addStudent("Biff", [71, 80, 56, 65, 60]);
+printGrades(students);
+convertGrades(students);
+
+REVIEW QUESTIONS
+
+1. What is the naming convention for functions in JavaScript?
+* lower camelCase
+
+2. What will be the result of the following code?
+
+if (someValue > 0) {
+    let greet = "hi there";
+}
+
+console.log(greet);
+
+* ReferenceError: someValue is not defined
+
+3. Should you use the var keyword to declare a variable?
+* no
+
+(REALLY THO? SOUNDS LIKE IT WORKS, BUT JS CODE FASHION NO LONGER PREFERS IT...)
+
+ARROW FUNCTIONS
+https://www.w3schools.com/js/js_arrow_function.asp
+
+Arrow functions allow us to write shorter function syntax:
+
+Before arrow...
+
+hello = function() {
+  return "Hello World!";
+}
+
+With arrow...
+
+hello = () => {
+  return "Hello World!";
+}
+
+CHALLENGES
+
+1. Write a function that always returns the last item in whatever array is passed to it. (Hint: Refer to the Loops and Arrays lesson if you need a refresher on an easy way to get the last element.)
+
+function lastArrayItem(i) {
+    return i[i.length - 1]; 
+}
+
+const thisArray = [1, 2, 3, 4, 5];
+const lastItem = lastArrayItem(thisArray);
+console.log(lastItem);
+
+2. Biff decided to drop your class after his unfortunate grades. Add a function to the Student Grades program that will remove Biff from the list of students using the pop method.
+
+// assumes Biff ends up the first name in the array
+students.sort();
+students.pop(0);
+printGrades(students);
+convertGrades(students);
+
+3. In the wild, you will often see what are called arrow functions. In modern JavaScript, arrow functions are a shorter way to write functions, and utilize the => (arrow) syntax. Check out this resource to learn about the syntax for arrow functions. Then, try to reformat the following traditional function using arrow function syntax instead:
+
+function add(a, b) {
+    return a + b;
+}
+
+Arrow functions allow us to write shorter function syntax:
+
+let myFunction = (a, b) => a + b;
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+9/28: CHAPTER 6: MAKING MISTAKES
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=7
+
+COMMON TYPES OF ERRORS
+
+* Syntax Errors: When you fail to add or misspell an element of the language that is needed for the code to be understood.
+
+* Type Errors: When you try to perform an operation on a value of the wrong data type.
+
+* Reference Errors: When trying to use a variable out of the scope in which it was declared.
+
+* Logical Errors: When your syntax is actually correct but the code is not producing what you intended.
+
+Writing Pseudo-code...
+
+create function get password
+    store correct password in variable
+    prompt user for password
+    while password is incorrect
+        prompt for password
+    alert user they may enter
+    end function
+
+General Tips...
+
+1. Understand what your code is doing step by step.
+2. Form a hypothesis or two before looking at the code.
+3. Resolve syntax errors.
+4. Identify key variables or conditions.
+5. Think about your logic.
+
+USING console.log() TO DEBUG
+
+A quick and easy way to see the current state of a particular variable or condition.
+
+REVIEW QUESTIONS
+
+1. True or False - A syntax error occurs when code is not typed out correctly.
+* True
+
+2. True or False - A reference error occurs when a variable is used outside its scope or before it is declared.
+* True
+
+3. True or False - A logical error occurs when code works but is not producing the results you expected.
+* True
+
+CHALLENGES
+
+1. Identify the logical error in the following code.
+
+// find the even numbers in an array
+let someValues = [0, 1, 2, 3, 4, 5];
+
+for (let i = 0; i < someValues.length; i++) {
+    if (someValues[i] / 2 == 0) {
+        console.log(someValues[i]);
+    }
+}
+
+Answer: The function is checking if each value in the array divided by 2 is exactly equal to zero, for which the only correct match is 0 itself. Correcting the "/" operator to "%" to determine the remainder of each value not matching zero corrects the code.
+
+// find the even numbers in an array
+let someValues = [0, 1, 2, 3, 4, 5];
+
+for (let i = 0; i < someValues.length; i++) {
+    if (someValues[i] % 2 == 0) {
+        console.log(someValues[i]);
+    }
+}
+
+2. Let's say you are writing a program that allows users to manage a collection of recipes. You want the user to be able to add, remove, edit, and search through their recipes. You also want the user to be able to "favorite" individual recipes and let them search and look through their list of favorites. Write some pseudo-code for a program that allows for each of these features.
+
+Create an empty array to store the user's recipes.
+Create an empty array to store the user's favorite recipes.
+
+Create a function to add a new recipe to the user's recipes array.
+Create a function to delete a new recipe to the user's recipes array.
+Create a function to replace a new recipe to the user's recipes array.
+Create a function to search and match query to the user's recipes array.
+Create a function to list the user's recipes array.
+
+Create a function to add a new recipe to the user's favorite recipes array.
+Create a function to delete a new recipe to the user's favorite recipes array.
+Create a function to replace a new recipe to the user's favorite recipes array.
+Create a function to search and match query to the user's favorite recipes array.
+Create a function to list the user's recipes array.
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+9/29: CHAPTER 7: VS CODE AND GITHUB
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=8
+
+Download: index.html script.js
+http://chimaboo.com/coursework/data/javascript.zip
+
+VSCODE
+https://code.visualstudio.com/
+
+GIT ON MY MACHINES
+
+My Mac Mini: git version 2.30.1 (Apple Git-130)
+My Win 10 Laptop: TBD
+
+STANTON ON GITHUB
+https://github.com/pingstanton
+
+To initialize a new local repository, pick an existing or new folder on your computer and open it in VS Code. In the Source Control view, select the Initialize Repository button. This creates a new Git repository in the current folder, allowing you to start tracking code changes.
+
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+from git --help via MacOS Terminal...
+
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone             Clone a repository into a new directory
+   init              Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add               Add file contents to the index
+   mv                Move or rename a file, a directory, or a symlink
+   restore           Restore working tree files
+   rm                Remove files from the working tree and from the index
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+examine the history and state (see also: git help revisions)
+   bisect            Use binary search to find the commit that introduced a bug
+   diff              Show changes between commits, commit and working tree, etc
+   grep              Print lines matching a pattern
+   log               Show commit logs
+   show              Show various types of objects
+   status            Show the working tree status
+
+grow, mark and tweak your common history
+   branch            List, create, or delete branches
+   commit            Record changes to the repository
+   merge             Join two or more development histories together
+   rebase            Reapply commits on top of another base tip
+   reset             Reset current HEAD to the specified state
+   switch            Switch branches
+   tag               Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch             Download objects and refs from another repository
+   pull              Fetch from and integrate with another repository or a local branch
+   push              Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+
+/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
+
+REVIEW QUESTIONS
+
+1. A version control system like Git allows you to (select all that apply):
+* track changes to your files
+* share your files and collaborate with others
+* restore files you may have deleted on your own machine
+* undo changes and revert to earlier versions
+
+2. True or False - You need to stage your files before committing them.
+* True
+
+3. True or False - If you commit your changes, they will be immediately reflected in your GitHub repository.
+* False
+
+CHALLENGE
+
+We saw that both the HTML file and the JavaScript file are contributing to the creation of our project webpage. For this challenge, try changing the text that is displayed from the HTML page to whatever you'd like. Once you have made a change and see it reflected in the webpage, stage the change, commit it, and push it to GitHub with an appropriate message.
+
+https://github.com/pingstanton/javascriptWk20230928
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+10/5: CHAPTER 8: HTML AND CSS
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=9
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+10/12: CHAPTER 9: INTERACTIVE WEB DESIGN
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=10
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+10/19: CHAPTER 10: BUILDING A DATA-DRIVEN WEBPAGE
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=11
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+10/26: CHAPTER 11: JSON
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=12
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+11/2: CHAPTER 12: MAPPING WITH LEAFLET
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=13
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+11/9: CHAPTER 13: WORKING WITH GEOSPATIAL DATA
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=14
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+11/16: CHAPTER 14: READING DOCUMENTATION & CHAPTER 15: STARTING YOUR PROJECT
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=15
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=16
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+11/23 NO CLASS
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+11/30: CHAPTER 16: PUTTING YOUR PROJECT TOGETHER
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=17
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+12/7: CHAPTER 17: GOING LIVE
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=18
+
+
