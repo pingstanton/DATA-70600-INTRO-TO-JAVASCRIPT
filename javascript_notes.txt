@@ -1,8 +1,22 @@
+JAVASCRIPT COURSE NOTES
+Last updated Oct. 19, 2023
+
+Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu
+
+Webserver backups:
+https://chimaboo.com/coursework/DATA70600/javascript_notes.txt
+
+GitHub backups:
+https://github.com/pingstanton/DATA-70600-INTRO-TO-JAVASCRIPT/
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
 DATA 70600 / DHUM 70600 - INTRODUCTION TO JAVASCRIPT
 (Thurs 6:30-7:30 Online via Zoom) - Instructor: Stephen Zweibel (Steve)
+
 Zoom: https://gc-cuny-edu.zoom.us/j/5363682686?pwd=amdYRTEzVUdIaVpCVTlwNDFFRjNNdz09
 
-Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu | EMPLID 24371021
+Slack: https://gcdigitalmasters.slack.com/archives/C05Q2FU752T
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -951,15 +965,310 @@ https://github.com/pingstanton/javascriptWk20230928
 10/5: CHAPTER 8: HTML AND CSS
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=9
 
+Useful HTML Tags
+
+<p></p>: This tag defines a paragraph of text.
+<h1></h1>: This tag defines a header, or a large series of text.
+<h2</h2>: This tag defines a smaller header, or a smaller series of text. It descends all the way down to <h6>.
+<img src ="..." alt="Text for accessibility purposes" />: This tag sets an image to display, with an alternative text for accessibility. Note that it is a void element, meaning it doesn't have a closing tag.
+<a href="...">...</a>: This tag creates a hyperlink.
+<div></div>: This tag designates a container block or section for other elements.
+<section></section>: This tag creates a section of content.
+
+REVIEW QUESTIONS
+
+1. How do we associate a CSS stylesheet with a HTML file?
+* By including a link to the CSS file in the HTML page's <head> element.
+
+2. True or False - ids are created using the . (dot) character and classes are created using the # (hash) character.
+* False
+
+3. True or False - Flexboxes are useful because they allow for a dynamic layout of elements on a page.
+
+CHALLENGES
+
+1. Add another joke of your own to the jokes section of your page.
+
+2. Add a link in the jokes section to an online list of jokes using the <a href=""></a> tag. To learn about this tag, see this page.
+
+3. Create a new <section> in your HTML file to display your favorite poem. In CSS, give it an appropriate id, and define the section as a centered flexbox with a different border, background color, and text color.
+
+4. Push all your changes to the project to GitHub.
+
+** ON WEB SERVER **
+https://chimaboo.com/coursework/DATA70600/index.html
+https://chimaboo.com/coursework/DATA70600/styles.css
+https://chimaboo.com/coursework/DATA70600/script.js
+
+Looking ahead: Leaflet - https://leafletjs.com/
+
+From Randip: MapLibre - https://maplibre.org/
+
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 10/12: CHAPTER 9: INTERACTIVE WEB DESIGN
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=10
 
+Files For The Exercises
+
+https://chimaboo.com/coursework/DATA70600/wk09/9_index.html
+https://chimaboo.com/coursework/DATA70600/wk09/9_script.js
+https://chimaboo.com/coursework/DATA70600/wk09/9_styles.css
+
+IMPORTING JQUERY
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+Here we are importing the jQuery library from the jQuery CDN (Content Delivery Network). 
+
+USING JQUERY
+
+$("h1").hide();
+$("#noShow").hide();
+
+Selecting by Class: Selecting by class is the same as selecting by id, but instead of using the # symbol, we use the . (dot) symbol. 
+
+$(".className")
+
+Appending Elements: Use the .append() method to add a new joke to our joke section. Here we are identifying the element with the id joke (used for our joke <section>) and adding a new paragraph <p> element to it. 
+
+$("#joke").append("<p>Q. What do you call a fake noodle? <br /> A. An impasta</p>");
+
+Remember:
+
+* $("") is the jQuery selector.
+* To select an element by id, use # followed by the id name.
+* To select an element by class, use . followed by the class name.
+* You can use methods like .hide() and .html() and .append() to modify elements that you select.
+
+Documentation: https://api.jquery.com/
+
+ADDING INTERACTIVITY
+
+Creating a Button: <button id="toggleJokes">Toggle Jokes</button>
+
+
+CSS Styling in JavaScript: We can use the .css() method to add styling to any element. 
+
+For example, to make the button orange, with larger white text, a border, some padding, and some margin space around the button to separate it from other elements, we could add the following code to our style.css file:
+
+#toggleJokes {
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+CSS Styling in JavaScript: We can use the .css() method to add styling to any element.
+
+// modify css styles for the button
+$("#toggleJokes").css("background-color", "orange");
+$("#toggleJokes").css("color", "white");
+$("#toggleJokes").css("font-size", "20px");
+$("#toggleJokes").css("padding", "10px");
+$("#toggleJokes").css("border-radius", "5px");
+$("#toggleJokes").css("border", "2px solid black");
+$("#toggleJokes").css("margin", "10px");
+
+Instead of writing a bunch of separate lines, we can also use the .css() method to modify the styles of multiple properties of an element at once. To do so, you simply wrap the properties in curly braces and separate them with a comma, writing them out as you would in a typical CSS style sheet.
+
+// modify css styles for the button
+$("#toggleJokes").css({
+    "background-color": "orange",
+    "color": "white",
+    "font-size": "20px",
+    "padding": "10px",
+    "border-radius": "5px",
+    "border": "2px solid black",
+    "margin": "10px"
+});
+
+Making the Button Clickable: We need to add a click event to the button.
+
+$("#toggleJokes").click(function() {
+  $("#joke").toggle();
+});
+
+More info here: http://api.jquery.com/
+
+REVIEW QUESTIONS
+
+1. True or False - Unless you specify otherwise, a selector will select all elements of the same type on a page.
+* True
+
+2. True or False - To select an element by id, use # followed by the id name.
+* True
+
+3. True or False - To select an element by class, use . followed by the class name.
+* True
+
+CHALLENGES
+
+1. Add an image somewhere on the page. You can learn how to add images here. Note that you will have to save the image within your project folder to be able to load it into your page.
+
+2. Using selectors, give the image rounded corners in CSS or JavaScript.
+
+3. Prompt() the user whether the jokes on our page are good or bad. If the user responds with "bad", then change the header text to "The Worst Jokes Ever!". If the user responds with "good", keep the header text as "The Best Jokes Ever!".
+
+4. Add a button to the page that will change the page's overall color scheme (background color, text color, etc.).
+
+5. Push all your changes to GitHub.
+
+
+let response = prompt("Are these jokes good or bad?");
+if (response === "bad") {
+    $("h1").html("The Worst Jokes Ever :-(");
+} else if (response === "good") {
+    $("h1").html("The Best Jokes Ever :-)");
+} else {
+    $("h1").html("Bad Jokes Galore");
+}
+
+
+
+$(document).ready(function(){
+  $("#changeStyle").click(function(){
+    $("body").css({
+        "background-color": "forestgreen",
+        "font-style": "italic",
+        "font-size": "35px",
+        "font-family": "Times New Roman', Times, serif",
+        "border": "16px solid pink",
+        "border-radius": "80px", 
+        "text-decoration": "underline dashed 4px purple",
+        "text-transform": "capitalize",
+        "box-shadow": "27px 52px 4px 2px rgba(221, 132, 55, .4)",
+        "display": "flex",
+        "flex-direction": "column",
+        "justify-content": "left",
+        "align-items": "self-start"
+        });   
+    })
+});
+
+
+From Stephen Zweibel via Slack Oct. 12 at 7:36 PM
+
+// click to change css style, and back to original
+$("#changeStyle").click(function () {
+    if ($("#joke").css("color") == "rgb(255, 230, 204)") {
+        $("#joke").css("color", "red");
+    } else {
+        $("#joke").css("color", "rgb(255, 230, 204)");
+    }
+});
+
+
+Elizabeth Szypulski to Everyone (Oct 12, 2023, 7:16 PM)
+
+Example of JSON in a project — The project my group did in our methods class used JSON - https://morethansurviving.org/ . We generated JSON from a Google Sheet to have the same data show up in our timeline, map, and gallery
+
+https://morethansurviving.org/
+
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 10/19: CHAPTER 10: BUILDING A DATA-DRIVEN WEBPAGE
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=11
+
+Building a Data-Driven Webpage...
+https://chimaboo.com/coursework/DATA70600/wk10/index.html
+
+THE .map() METHOD
+
+* This method takes the function as an argument and runs that function's operations as it iterates. 
+* In doing so, it will create a new array that you can use to store the results of the function without altering the original array. 
+* In short, you use .map() whenever you want to build an array out of another array. 
+
+let line1TextArray = []
+line1TextArray = line1.map(function(word) {
+  return word.text;
+});
+
+From ChatGPT:
+
+const newArray = array.map(callback(currentValue[, index[, array]]) {
+  // return element for newArray
+}, thisArg);
+
+* array: This is the array you want to operate on.
+* callback: This is a function that will be called once for each element in the array. It can take three parameters:
+* currentValue: The current element being processed in the array.
+* index (optional): The index of the current element being processed.
+* array (optional): The array map() was called upon.
+* thisArg (optional): An optional value to be used as the this value in the callback function.
+
+THE .join() METHOD
+
+The join() method returns an array as a string. 
+
+let line1Text = line1TextArray.join(" ");
+
+From ChatGPT:
+
+The join() method in JavaScript is a built-in function that is used to create a string by concatenating all the elements of an array, separated by a specified delimiter. It takes the elements of an array and joins them together into a single string, with the specified delimiter separating each element. 
+* You can use the join() method to create a comma-separated list, space-separated list, or any other custom separator to suit your needs.
+* If you want to join elements without any separator, you can pass an empty string as the argument to join():
+
+array.join(separator);
+
+* array: This is the array whose elements you want to join into a string.
+* separator (optional): This is the string that is used as a separator between each element while forming the final string. If you omit the separator, the default is a comma (,).
+
+The join() method is particularly useful when you want to convert an array into a formatted string, such as when preparing data for display or when constructing a query string for a URL.
+
+JSON (JavaScript Object Notation)
+* JSON objects are very much like JavaScript objects.
+* JSON objects are written in key/value pairs.
+* JSON objects are surrounded by curly braces { }.
+* Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null).
+* Keys and values are separated by a colon.
+* Each key/value pair is separated by a comma.
+* Arrays are enclosed in square brackets [ ] and each element is separated by a comma.
+
+REVIEW QUESTIONS
+
+1. True or False - map() allows you to iterate over an array, but it doesn't return anything.
+* True
+
+2. True or False - We can import a JSON dataset as an object in JavaScript.
+* True
+
+3. The following code would affect which element?
+
+$("#poem h3").click(function(){
+    // some action
+});
+
+* The header element
+
+
+CHALLENGES
+
+1. Our poem page is quite bland. Spruce it up however you'd like by marshalling your CSS skills.
+
+https://chimaboo.com/coursework/DATA70600/wk10/poem.html
+https://chimaboo.com/coursework/DATA70600/wk10/poem.css
+
+2. .map() is an important method. Get a little practice in by writing a new function that takes an array of integers and, using .map(), returns an array of those integers, doubled. So if we give it [1, 2, 3], we receive, in turn, [2, 4, 6]. Display this info in the console.
+
+let sampleData = [1,2,3];
+
+const doubledData = sampleData.map(function(i) {
+  return i * 2;
+});
+
+console.log(doubledData);
+
+3. .map() is similar to another method, .forEach(). We haven't covered the latter, but you may encounter it in the wild. Read through this article to understand the differences between the two, and to learn a little more about .map() specifically.
+
+https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+
+4. Add a new property to the JSON file that stores a wiki link for a particular literary device (e.g., here for anaphora: https://en.wikipedia.org/wiki/Anaphora_). Create a new data attribute to access this property and add it to the info message that is displayed when clicked.
+
+https://chimaboo.com/coursework/DATA70600/wk10/poem.html
+https://chimaboo.com/coursework/DATA70600/wk10/poem.js
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
