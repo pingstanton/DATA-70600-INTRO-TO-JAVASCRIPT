@@ -1,5 +1,5 @@
 JAVASCRIPT COURSE NOTES
-Last updated Oct. 19, 2023
+Last updated Oct. 27, 2023
 
 Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu
 
@@ -1163,7 +1163,7 @@ $("#changeStyle").click(function () {
 
 Elizabeth Szypulski to Everyone (Oct 12, 2023, 7:16 PM)
 
-Example of JSON in a project — The project my group did in our methods class used JSON - https://morethansurviving.org/ . We generated JSON from a Google Sheet to have the same data show up in our timeline, map, and gallery
+Example of JSON in a project â€” The project my group did in our methods class used JSON - https://morethansurviving.org/ . We generated JSON from a Google Sheet to have the same data show up in our timeline, map, and gallery
 
 https://morethansurviving.org/
 
@@ -1227,6 +1227,11 @@ JSON (JavaScript Object Notation)
 * Each key/value pair is separated by a comma.
 * Arrays are enclosed in square brackets [ ] and each element is separated by a comma.
 
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+10/26: CHAPTER 11: JSON
+http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=12
+
 REVIEW QUESTIONS
 
 1. True or False - map() allows you to iterate over an array, but it doesn't return anything.
@@ -1269,11 +1274,44 @@ https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
 https://chimaboo.com/coursework/DATA70600/wk10/poem.html
 https://chimaboo.com/coursework/DATA70600/wk10/poem.js
+https://chimaboo.com/coursework/DATA70600/wk10/poem.json
+https://chimaboo.com/coursework/DATA70600/wk10/poem.css
 
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+https://en.wikipedia.org/wiki/Anaphora_(rhetoric)
+https://en.wikipedia.org/wiki/Alliteration
+https://en.wikipedia.org/wiki/Caesura
 
-10/26: CHAPTER 11: JSON
-http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=12
+https://dev.to/oschertar/how-to-export-your-data-from-google-sheets-to-json-3ih8
+
+~ ~ ~
+
+On Fri, Oct 27, 2023 at 1:03â€¯PM Matthew Stanton <pingstanton@gmail.com> wrote:
+
+Professor Zweibel -
+
+I am completely frustrated by the poem exercise.
+
+https://chimaboo.com/coursework/DATA70600/wk10/poem.html
+https://chimaboo.com/coursework/DATA70600/wk10/poem.js
+https://chimaboo.com/coursework/DATA70600/wk10/poem.css
+https://chimaboo.com/coursework/DATA70600/wk10/poem.json
+
+Problems...
+
+* I expected if (word.wikilink) to only trigger if there was "wikilink" content for a given line, but it triggers after every line. (In this most recent version of the .js file, I am ignoring the event handler part, just trying to place the link on the page.) In PHP terms, I was expecting javascript to behave like...
+
+if (word.wikilink != "") { 
+  do the thing for this line only
+}
+
+* The intended HTML formatting of "For more information, see <a href="https://en.wikipedia.org/wiki/Anaphora_(rhetoric)">https://en.wikipedia.org/wiki/Anaphora_(rhetoric)</a>" is not working.
+
+* Ultimately, the point was to add this "For more information" after the info variable displayed in the document's #info ID when the highlighted word was clicked, as happens with info. However the intended code is only displayed as "undefined."
+
+Anaphora: The repetition of a word or phrase at the beginning of (usually successive) lines. For example, the use of What in the first four lines.  For more info, see undefined
+
+Any correct examples would be appreciated. Thank you and have a great weekend.
+
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -1304,5 +1342,4 @@ http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=17
 
 12/7: CHAPTER 17: GOING LIVE
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=18
-
 
