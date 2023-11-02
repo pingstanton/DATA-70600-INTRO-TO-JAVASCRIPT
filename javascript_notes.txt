@@ -1,5 +1,5 @@
 JAVASCRIPT COURSE NOTES
-Last updated Oct. 27, 2023
+Last updated Nov. 2, 2023
 
 Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu
 
@@ -24,6 +24,32 @@ Using Your Browser's Console - Google Chrome:
 * Command + Option + i (Mac)
 * Ctrl + Shift + i (Windows/Linux)
 * Open the Chrome settings menu in the top-right corner of your browser window and select More Tools > Developer Tools.
+
+About the Console...
+
+The JavaScript console is a valuable tool for developers when working with JavaScript in web browsers or Node.js. It provides a way to interact with and inspect your code and the runtime environment. Here are some of the primary uses and benefits of the JavaScript console:
+
+1. Debugging: The console is essential for debugging JavaScript code. Developers can use functions like `console.log()`, `console.error()`, and `console.warn()` to output information about variables, objects, and the flow of their code. This helps identify and diagnose issues and bugs in the code.
+
+2. Logging: Developers can log messages and data to the console to get insights into the program's behavior. This is especially useful for tracking the values of variables and understanding how the code executes.
+
+3. Error handling: JavaScript errors and exceptions can be caught and logged in the console. Error messages provide information about what went wrong, which is crucial for debugging and fixing issues in your code.
+
+4. Performance analysis: You can measure the performance of your code using the console. Tools like `console.time()` and `console.timeEnd()` allow you to measure how long a specific portion of your code takes to execute. This can help in optimizing performance-critical sections of your application.
+
+5. Interactive exploration: The console allows you to interactively explore and manipulate JavaScript objects and functions. You can execute code snippets and see the results immediately, which is helpful for experimenting with code and testing ideas.
+
+6. Profiling: Browsers often provide profiling tools that can be accessed through the console. These tools help you analyze the performance of your JavaScript code, identifying bottlenecks and areas for improvement.
+
+7. Inspecting DOM: In a web browser environment, you can inspect and manipulate the Document Object Model (DOM) of a web page using the console. This is useful for web development and debugging client-side scripts.
+
+8. Network requests: The console can display information about network requests made by your application, which is helpful for tracking and debugging AJAX calls, HTTP requests, and responses.
+
+9. Environment information: You can use the console to gather information about the runtime environment, including the user agent, browser version, and platform. This is valuable for ensuring cross-browser compatibility.
+
+10. Testing and experimentation: The console is a useful tool for quickly testing code snippets or APIs without needing to create a full-fledged application. This can save time during development.
+
+In summary, the JavaScript console is a versatile tool that assists developers in debugging, logging, performance analysis, and interactive experimentation when working with JavaScript in various contexts. It's an indispensable part of the developer's toolkit for building and maintaining web applications.
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -1163,7 +1189,7 @@ $("#changeStyle").click(function () {
 
 Elizabeth Szypulski to Everyone (Oct 12, 2023, 7:16 PM)
 
-Example of JSON in a project â€” The project my group did in our methods class used JSON - https://morethansurviving.org/ . We generated JSON from a Google Sheet to have the same data show up in our timeline, map, and gallery
+Example of JSON in a project — The project my group did in our methods class used JSON - https://morethansurviving.org/ . We generated JSON from a Google Sheet to have the same data show up in our timeline, map, and gallery
 
 https://morethansurviving.org/
 
@@ -1285,7 +1311,7 @@ https://dev.to/oschertar/how-to-export-your-data-from-google-sheets-to-json-3ih8
 
 ~ ~ ~
 
-On Fri, Oct 27, 2023 at 1:03â€¯PM Matthew Stanton <pingstanton@gmail.com> wrote:
+On Fri, Oct 27, 2023 at 1:03 PM Matthew Stanton <pingstanton@gmail.com> wrote:
 
 Professor Zweibel -
 
@@ -1318,6 +1344,110 @@ Any correct examples would be appreciated. Thank you and have a great weekend.
 11/2: CHAPTER 12: MAPPING WITH LEAFLET
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=13
 
+LEAFLET
+https://leafletjs.com/
+https://leafletjs.com/reference.html
+
+Leaflet is an open-source JavaScript library (like jQuery) that will help us add interactive maps to our web pages.
+
+In the HTML (map.htm)...
+
+<div id="map"></div>
+...
+<script src="map.js"></script>
+
+In the CSS (map.css)...
+
+#map {height: 400px;}
+
+In the javascript (map.js)...
+
+let someMap;
+someMap = L.map("map");
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(someMap);
+
+poemMap.setView([40.7128, -74.0060], 16);
+
+In the above example, the initial view of the map is zoomed most of the way in on Times Square:
+
+* Latitude: 40.758896
+* Longitude: -73.985130
+
+ADDING MARKETS
+
+Creates a default market at the stated latitude and longitude, and displays the given text when clicked.
+
+const timesSquare = L.marker([40.7580, -73.9855]).addTo(poemMap);
+timesSquare.bindPopup("<b>Times Square</b>");
+
+ADDING SHAPES
+
+const circle = L.circle([40.7580, -73.9855], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(someMap);
+
+ADDING POLYLINES
+
+const polyline = L.polyline([
+    [40.7580, -73.9855],
+    [40.7486, -73.9840]
+], {
+    color: 'blue'
+}).addTo(someMap);
+
+polyline.bindPopup("<b>Times Square to the Graduate Center</b>");
+
+GETTING LAT LONG FROM LEAFLET AND THE CONSOLE
+
+const latLng = timesSquare.getLatLng();
+console.log(latLng.lat);
+console.log(latLng.lng);
+
+someMap.on('click', function(e) {
+    const latLng = e.latlng;
+    console.log(latLng.lat);
+    console.log(latLng.lng);
+});
+
+REVIEW QUESTIONS
+
+1. Modular programming emphasizes separating the functionality of a program into smaller, independent pieces.
+* True
+
+2. After initializing your map, you should add the tile layer.
+* True
+
+3. The .addTo() method adds an object to a map.
+* True
+
+CHALLENGES
+
+1. Create a marker at the location of your favorite restaurant, bar, cafe, or event space in NYC.
+
+2. Draw some polylines that replicate a walk to the nearest subway station from your favorite spot in step 1. (Note: It doesn't need to be super precise: just use the click event and console.log() to map out the general coordinates of your walk at each turn.)
+
+3. Push all your code to GitHub.
+
+
+https://chimaboo.com/coursework/DATA70600/wk11/mapmilw.html
+https://chimaboo.com/coursework/DATA70600/wk11/milw.css
+https://chimaboo.com/coursework/DATA70600/wk11/mapmilw.js
+
+Also customized marker to use the Summerfest logo:
+
+https://chimaboo.com/coursework/DATA70600/wk11/smfsticon.png
+https://chimaboo.com/coursework/DATA70600/wk11/smfsticonshdw.png
+
+On GitHub:
+https://github.com/pingstanton/DATA-70600-INTRO-TO-JAVASCRIPT/
+
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 11/9: CHAPTER 13: WORKING WITH GEOSPATIAL DATA
@@ -1342,4 +1472,5 @@ http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=17
 
 12/7: CHAPTER 17: GOING LIVE
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=18
+
 
