@@ -1,5 +1,5 @@
 JAVASCRIPT COURSE NOTES
-Last updated Nov. 9, 2023
+Last updated Nov. 16, 2023
 
 Matthew Stanton | pingstanton@gmail.com | mstanton@gradcenter.cuny.edu
 
@@ -1416,6 +1416,12 @@ someMap.on('click', function(e) {
     console.log(latLng.lng);
 });
 
+
+LEAFLET THEME / TILE LAYERS PREVIEWS FOR LEAFLET
+
+https://leaflet-extras.github.io/leaflet-providers/preview/
+
+
 REVIEW QUESTIONS
 
 1. Modular programming emphasizes separating the functionality of a program into smaller, independent pieces.
@@ -1434,7 +1440,6 @@ CHALLENGES
 2. Draw some polylines that replicate a walk to the nearest subway station from your favorite spot in step 1. (Note: It doesn't need to be super precise: just use the click event and console.log() to map out the general coordinates of your walk at each turn.)
 
 3. Push all your code to GitHub.
-
 
 https://chimaboo.com/coursework/DATA70600/wk11/mapmilw.html
 https://chimaboo.com/coursework/DATA70600/wk11/milw.css
@@ -1486,12 +1491,160 @@ CHALLENGES
 
 3. If a neighborhood is in Manhattan, change the color of the neighborhood polygons to red. (Hint: You'll need to check for the borough property and perform style changes accordingly.)
 
+STANTON PROJECT (as of 11/11/2023)
+
+NYC Police Precincts (Historical Crime Data, Stop-and-Frisk)
+Scope: Create a Leaflet presentation of mapping different NYPD reports, initially with historical crime data but ultimately creating a heat map of stop-and-frisk data.
+
+This page: https://chimaboo.com/coursework/DATA70600/wk12/nyc-precincts.html
+
+Here's the source for NYC neighborhood boundaries: https://data.beta.nyc/dataset/pediacities-nyc-neighborhoods/resource/35dd04fb-81b3-479b-a074-a27a37888ce7
+
+Historical New York City Crime Data (to be converted into JSON format): https://www.nyc.gov/site/nypd/stats/crime-statistics/historical.page
+
+Compare to:  https://datacollaborativeforjustice.org/dashboard-sqf/ - basically exactly where I wanted to go with this...
+
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 11/16: CHAPTER 14: READING DOCUMENTATION & CHAPTER 15: STARTING YOUR PROJECT
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=15
 http://zweibel.net/Javascripting-Graduate-Student/workshop/javascript/?page=16
+
+THE ART OF REFERENCING
+
+JavaScript - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+HTML - https://developer.mozilla.org/en-US/docs/Web/HTML
+CSS - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+jQuery - https://api.jquery.com/
+Leaflet - https://leafletjs.com/reference.html
+JSON - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+
+Rubber Duck Debugging - https://en.wikipedia.org/wiki/Rubber_duck_debugging
+From Wikipedia entry: "In software engineering, rubber duck debugging (or rubberducking) is a method of debugging code by articulating a problem in spoken or written natural language. The name is a reference to a story in the book The Pragmatic Programmer in which a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, line by line, to the duck."
+
+Code Project - https://www.codeproject.com/
+
+Malcom Maclean's Leaflet Tips and Tricks - https://leanpub.com/leaflet-tips-and-tricks/read
+
+FINAL THOUGHTS
+
+1. Include the language/tool you are searching in as a search parameter.
+
+2. Break down your search into keywords.
+
+3. Be specific.
+
+4. Don't be afraid to copy/paste and tweak results to fit your programs, but be sure to understand what the code is doing as best you can.
+
+REVIEW QUESTIONS
+
+1. You should read documentation straight through, from top to bottom.
+* False
+
+2. You should copy and paste your entire error message when searching for guidance through Google.
+* False
+
+3. To get the most out of your Google searches, you should: (select all that apply)
+* Include the target language/tool you are searching in as a search parameter.
+* Break down your search into keywords.
+* Be specific.
+
+CHALLENGES
+
+1. Using this CSS reference guide (https://www.w3schools.com/cssref/), look into how you might do the following:
+* 1. Give the rectangle a width, height, and background color.
+* 2. Give the box a thick border.
+* 3. Center the rectangle on the page.
+* 4. Center the "I am a rectangle" text within the rectangle.
+* 5. Add a drop shadow to the rectangle.
+
+2. Using the jQuery reference (https://api.jquery.com/), look into how you might do the following:
+* 1. Check if the user has pressed the enter key on the keyboard.
+* 2. Add a hover event to an element (like a button) so that it will change color when the mouse is hovering over it.
+* 3. Scroll to the top of the page if the user clicks a button.
+
+3. Using the JavaScript reference (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) and/or Google, look into how you might do the following:
+* 1. Find the index of a substring within a string (like "dog" in "The dog jumped.").
+* 2. Given an array of numbers (e.g., [40, 38, 37, 93, 55, 66], filter out any values that are less than 50.
+* 3. Given a decimal number (like .36), round it up to the nearest whole number.
+* 4. Create a random number between 1 and 100.
+
+PROJECT REQUIREMENTS
+
+Your projects should demonstrate that you understand the major concepts covered in this course. At a baseline level, this means your project should include:
+
+* A homepage that includes a brief description of your project and its purpose.
+* Interactive content that allows the user to explore the project (buttons, links, images, text, etc).
+* Dataset(s) pertinent to the project, whether it be data you've created yourself, or data you've imported from a data source.
+* Some sort of visualization of the data you are working with (e.g., a map).
+* A style appropriate to the project or to your personal aesthetic tastes.
+* A new GitHub repository dedicated to the project and a working version that you can share with others.
+
+PROJECT COMPONENTS
+
+* HTML file
+* CSS file
+* JavaScript file
+* JSON file
+* Leaflet map
+* GitHub repository
+
+WHERE TO FIND DATA
+
+* NYC Open Data (https://opendata.cityofnewyork.us/): Official source for data in New York City.
+* USGS (United States Geological Survey) (https://www.usgs.gov/): Official source for geological data in the United States.
+* Google's Dataset Search (https://datasetsearch.research.google.com/): Search for datasets on Google.
+* Kaggle (https://www.kaggle.com/datasets): Search for a variety of datasets on Kaggle.
+* Data.gov (https://www.data.gov/): US Gov data covering everything from climate change to crime.
+* Datahub.io (https://datahub.io/): Mostly business and finance datasets
+* EarthData (https://earthdata.nasa.gov/): NASA data
+* Data.world (https://data.world/): Data from various sources
+
+CHALLENGES
+
+1. Write a short project proposal to share your ideas with the class (a paragraph or two will suffice).
+
+2. Begin gathering or creating a dataset relevant to your ideas.
+
+3. Create a new folder and a new GitHub repository for the project. Begin uploading your essential files you'll be working with (an HTML file, a CSS file, a JS file, your data, etc.). If you need a refresher with GitHub, review the GitHub lesson.
+
+~ ~ ~ ~ ~
+
+Ars Technnica article:
+Can you melt eggs? Quora’s AI says “yes,” and Google is sharing the result
+https://arstechnica.com/information-technology/2023/09/can-you-melt-eggs-quoras-ai-says-yes-and-google-is-sharing-the-result/
+
+~ ~ ~ ~ ~
+Stanton Project Data
+
+NYC POLICE PRECINCTS (Historical Crime Stat Data, Stop-and-Frisk Data)
+
+Scope: Create a Leaflet presentation of mapping different NYPD reports, initially with historical crime data but ultimately creating a heat map of stop-and-frisk data.
+
+This page: 
+https://chimaboo.com/coursework/DATA70600/wk12/nyc-precincts.html
+
+Here's the source for NYC neighborhood boundaries: 
+https://data.beta.nyc/dataset/pediacities-nyc-neighborhoods/resource/35dd04fb-81b3-479b-a074-a27a37888ce7
+
+Historical New York City Crime Data (to be converted into JSON format)
+https://www.nyc.gov/site/nypd/stats/crime-statistics/historical.page
+
+UPDATE: Well, basically, this: https://datacollaborativeforjustice.org/dashboard-sqf/
+
+RECOMMEND LOOKING AT:
+
+Brutalist Websites
+https://brutalistwebsites.com/
+
+Baldwin's Paris
+https://baldwinsparis.com/
+
+DHRIFT
+http://dhrift.org
+https://app.dhrift.org/inst/?instUser=dhri-curriculum&instRepo=dhrift-site-template
+
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
